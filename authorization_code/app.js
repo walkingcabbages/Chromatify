@@ -17,8 +17,8 @@ var cookieParser = require('cookie-parser');
 
 var client_id = '382d48671da9477ea020977004e4c0b0'; // Your client id
 var client_secret = '79bc38e863a441e0a6c57e31a4c678dd'; // Your secret
-// var redirect_uri = 'http://localhost:8888/callback'; // Your local redirect uri
-var redirect_uri = `https://palletify.herokuapp.com:${port}/callback`;
+var redirect_uri = 'http://localhost:8888/callback'; // Your local redirect uri
+// var redirect_uri = `https://palletify.herokuapp.com:${port}/callback`;
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -49,7 +49,7 @@ app.get('/login', function (req, res) {
   res.cookie(stateKey, state);
 
   // your application requests authorization
-  var scope = 'user-read-private user-read-email';
+  var scope = 'user-top-read';
   res.redirect(
     'https://accounts.spotify.com/authorize?' +
       querystring.stringify({
@@ -107,6 +107,17 @@ app.get('/callback', function (req, res) {
 
         // use the access token to access the Spotify Web API
         request.get(options, function (error, response, body) {
+          console.log(body);
+        });
+
+        var top_tracks_options = {
+          url: 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=10&offset=0',
+          headers: { Authorization: 'Bearer ' + access_token },
+          json: true,
+        };
+        // use the access token to access the user's top tracks
+        request.get(top_tracks_options, function (error, response, body) {
+          console.log('hello!!');
           console.log(body);
         });
 
