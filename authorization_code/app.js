@@ -110,17 +110,6 @@ app.get('/callback', function (req, res) {
           console.log(body);
         });
 
-        var top_tracks_options = {
-          url: 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=10&offset=0',
-          headers: { Authorization: 'Bearer ' + access_token },
-          json: true,
-        };
-        // use the access token to access the user's top tracks
-        request.get(top_tracks_options, function (error, response, body) {
-          console.log('hello!!');
-          console.log(body);
-        });
-
         // we can also pass the token to the browser to make requests from there
         res.redirect(
           '/#' +
