@@ -36,6 +36,9 @@
       <ul class='people_list'>
         {{#each items}}
           <li>{{this.name}}</li>
+          <li>{{this.artists}}</li>
+          <li>{{this.album.images.0.url}}</li>
+          <img class="media-object" width = "150" src="{{this.album.images.0.url}}" />
         {{/each}}
       </ul>
     </script>
