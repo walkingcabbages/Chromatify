@@ -20,10 +20,10 @@
     </style>
   </head>
 
-  <body>
+  <body style="background-color:#171717;"></body>
     <div class="container">
       <div id="login">
-        <h1>Y-YOUR MOM</h1>
+        <p style="color:#A3E4D7;font-size:50px"> Welcome To Palletefy </p>
         <a href="/login" class="btn btn-primary">Log in with Spotify</a>
       </div>
       <div id="loggedin">
@@ -33,10 +33,25 @@
     </div>
 
     <script id="user-profile-template" type="text/x-handlebars-template">
+      <p style="color:#A3E4D7;
+                font-family:Raleway;
+                font-size:50px;
+                margin-top: 20px;
+                margin-bottom: 20px"> 
+        Your Top 9 Songs 
+      </p>
       <ul class='people_list'>
         {{#each items}}
-          <li>{{this.name}} by {{this.artists.0.name}}</li>
-          <img class="media-object" width = "150" src="{{this.album.images.0.url}}" />
+          
+          <img class="media-object; margin-bottom: 10px" 
+                width = "250" 
+                src="{{this.album.images.0.url}}" />
+          <p style="color:#FFFFFF; margin-bottom: -3px">
+            {{this.name}}
+          </p>
+          <p style="color:#ffffff67; margin-bottom:50px">
+            {{this.artists.0.name}}
+          </p>
         {{/each}}
       </ul>
     </script>
