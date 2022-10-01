@@ -7,6 +7,8 @@
  * https://developer.spotify.com/web-api/authorization-guide/#authorization_code_flow
  */
 
+var port = process.env.PORT || 8888;
+
 var express = require('express'); // Express web server framework
 var request = require('request'); // "Request" library
 var cors = require('cors');
@@ -16,9 +18,7 @@ var cookieParser = require('cookie-parser');
 var client_id = '382d48671da9477ea020977004e4c0b0'; // Your client id
 var client_secret = '79bc38e863a441e0a6c57e31a4c678dd'; // Your secret
 // var redirect_uri = 'http://localhost:8888/callback'; // Your local redirect uri
-var redirect_uri = `https://palletify.herokuapp.com:${
-  process.env.PORT || 8888
-}/callback`;
+var redirect_uri = `https://palletify.herokuapp.com:${port}/callback`;
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -157,4 +157,4 @@ app.get('/refresh_token', function (req, res) {
   });
 });
 
-app.listen(process.env.PORT || 8888);
+app.listen(port, () => console.log(`server is listening on port ${port}`));
