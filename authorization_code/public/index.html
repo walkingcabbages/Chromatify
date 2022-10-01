@@ -35,9 +35,7 @@
     <script id="user-profile-template" type="text/x-handlebars-template">
       <ul class='people_list'>
         {{#each items}}
-          <li>{{this.name}}</li>
-          <li>{{this.artists}}</li>
-          <li>{{this.album.images.0.url}}</li>
+          <li>{{this.name}} by {{this.artists.0.name}}</li>
           <img class="media-object" width = "150" src="{{this.album.images.0.url}}" />
         {{/each}}
       </ul>
