@@ -11,6 +11,6 @@
     "request": "~2.83.0"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node authorization_code/app.js"
   }
 }
