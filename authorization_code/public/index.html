@@ -33,6 +33,7 @@
     </div>
 
     <script id="user-profile-template" type="text/x-handlebars-template">
+      <div style="display: flex; flex-direction: column; align-items: center">
       <p style="color:#A3E4D7;
                 font-family:Raleway;
                 font-size:50px;
@@ -40,20 +41,22 @@
                 margin-bottom: 20px"> 
         Your Top 9 Songs 
       </p>
-      <ul class='people_list'>
+      <div style="display: flex; flex-wrap: wrap ">
         {{#each items}}
-          
-          <img class="media-object; margin-bottom: 10px" 
-                width = "250" 
-                src="{{this.album.images.0.url}}" />
-          <p style="color:#FFFFFF; margin-bottom: -3px">
-            {{this.name}}
-          </p>
-          <p style="color:#ffffff67; margin-bottom:50px">
-            {{this.artists.0.name}}
-          </p>
+          <div style="padding: 10px; height: 300px; width: 300px; box-sizing: content-box">
+            <img class="media-object; margin-bottom: 10px" 
+                  width = "250" 
+                  src="{{this.album.images.0.url}}" />
+            <p style="color:#FFFFFF; margin-bottom: -3px">
+              {{this.name}}
+            </p>
+            <p style="color:#ffffff67; margin-bottom:50px">
+              {{this.artists.0.name}}
+            </p>
+          </div>
         {{/each}}
-      </ul>
+      </div>
+    </div>
     </script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
@@ -92,7 +95,7 @@
         } else {
           if (access_token) {
             $.ajax({
-              url: 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=10&offset=0',
+              url: 'https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=9&offset=0',
               headers: {
                 Authorization: 'Bearer ' + access_token,
               },
