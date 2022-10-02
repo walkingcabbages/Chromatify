@@ -20,11 +20,30 @@
     </style>
   </head>
 
-  <body style="background-color:#171717;"></body>
+  
+  <body></body>
     <div class="container">
-      <div id="login">
-        <p style="color:#A3E4D7;font-size:50px"> Welcome To Palletefy </p>
-        <a href="/login" class="btn btn-primary">Log in with Spotify</a>
+      <div id="login" background="bg.png">
+        <body background="bg.png"></body>    
+        <div style="text-align:center; margin-top:150px;margin-bottom:20px">
+          <img class="media-object;
+                    margin-top:180px;
+                    margin-bottom:20px;" 
+                    width=600px
+                    src="title.png" />
+        </div>
+        <div style="text-align:center">
+          <a href="/login" 
+            class="btn btn-primary" 
+            style="color:#de6e19; 
+                  background-color: rgba(255, 60, 0, 0.14);
+                  text-align:center;
+                  border: #de6e19;
+                  font-size:20px;
+                  font-family:'Playfair Display'">
+            Login with Spotify
+          </a>
+        </div>
       </div>
       <div id="loggedin">
         <div id="user-profile"></div>
@@ -33,29 +52,34 @@
     </div>
 
     <script id="user-profile-template" type="text/x-handlebars-template">
-      <div style="display: flex; flex-direction: column; align-items: center">
-      <p style="color:#A3E4D7;
-                font-family:Raleway;
-                font-size:50px;
-                margin-top: 20px;
-                margin-bottom: 20px"> 
-        Your Top 9 Songs 
-      </p>
-      <div style="display: flex; flex-wrap: wrap ">
-        {{#each items}}
-          <div style="padding: 10px; height: 300px; width: 300px; box-sizing: content-box">
-            <img class="media-object; margin-bottom: 10px" 
-                  width = "250" 
-                  src="{{this.album.images.0.url}}" />
-            <p style="color:#FFFFFF; margin-bottom: -3px">
-              {{this.name}}
-            </p>
-            <p style="color:#ffffff67; margin-bottom:50px">
-              {{this.artists.0.name}}
-            </p>
-          </div>
-        {{/each}}
+      <div style="text-align:center;margin-top:20px;margin-bottom:30px;margin-left:250px">
+        <img class="media-object"
+            width = 600px
+            src="title2.png" />
       </div>
+      <div style="display: flex; flex-direction: column; align-items: center; background: rgba(9, 7, 20, 0.89); width: 100%">
+      <div style="text-align:center; margin-left: 80px; margin-bottom: 50 px">
+        <div style="display: flex; flex-wrap: wrap ">
+          {{#each items}}
+            <div style="padding: 10px; height: 300px; width: 300px; box-sizing: content-box">
+              <img class="media-object; margin-bottom: 10px" 
+                    width = "250" 
+                    src="{{this.album.images.0.url}}" />
+              <p style="color:#FFFFFF; margin-bottom: -3px;font-family:'Playfair Display'">
+                {{this.name}}
+              </p>
+              <p style="color:#ffffff8d; margin-bottom:100px;font-family:'Playfair Display'">
+                {{this.artists.0.name}}
+              </p>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+      <div style="text-align:center">
+        <p style="color:#ffffff8d; margin-top: 100px; margin-bottom:20px">
+          Developed Oct 2, 2022 by Megan Xu, Amy Cheng, Sara Patel.
+        </p>
+      </div>  
     </div>
     </script>
 
