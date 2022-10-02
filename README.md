@@ -1,4 +1,4 @@
-# Spotify Accounts Authentication Examples
+# Chromatify
 
 Chromatify rediscovers your music memories. View your most listened-to tracks of all time on Spotify through our carefully designed web app.
 
